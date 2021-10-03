@@ -1,10 +1,13 @@
-import  express,{Request, Response, NextFunction}  from "express";
+import  express,{ Request, Response, NextFunction }  from 'express'
+import userRoutes from './routes/routes-client'
+import indexRouter from './routes/routes-index'
 const app = express(), 
 port = 911;
 
-app.get('/status', (req:Request, res:Response, next:NextFunction) =>{
-    res.send({message: 'OK'}).status(200);
-})
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(userRoutes)
+app.use(indexRouter)
 
 app.listen(port, ()=>{
     console.log('listening on port ' + port);
