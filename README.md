@@ -20,3 +20,18 @@ Users
 * PUT /user/:uuid
 * DELETE /users/:uuid
 
+# New branch
+__Uploaded in 06/10/2021__
+
+## Features
+
+* Database added (postegrress)
+* Password encryption using crypt
+* Updated routes
+* Added folders : Repo, Models, SQL
+
+### Test
+
+[![Watch the video](https://cdn.pling.com/img/d/c/0/2/e4fff450a6306e045f5c26801ce31c3efaeb.jpg)](https://youtu.be/x2OphKe7pz4)
+
+
