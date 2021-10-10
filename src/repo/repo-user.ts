@@ -1,5 +1,6 @@
 import User from '../models/model-user';
 import db from '../db'
+import databaseErrModel from '../models/errors/database-err-model'
 
 class UserRepo {
     async findAllUsers():Promise<User[]>{
@@ -11,6 +12,8 @@ class UserRepo {
         return rows || [];
     }
     async findById(uuid:string):Promise<User>{
+        try{
+
         const query = `
          SELECT uuid, username
          FROM application_user
@@ -20,7 +23,7 @@ class UserRepo {
         const { rows } = await db.query<User>(query, values);
         const [ user ] = rows;
         return user;
-
+        }catch(err){throw new databaseErrModel('error in search by id ', err);}
     }
     async create(user: User): Promise<string> {
         const query = `
